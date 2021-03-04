@@ -1,0 +1,5 @@
+EZ_Stock/__pycache__/__init__.cpython-39.pyc
+EZ_Stock/__pycache__/settings.cpython-39.pyc
+EZ_Stock/spiders/__pycache__/__init__.cpython-39.pyc
+EZ_Stock/spiders/__pycache__/stock_spider.cpython-39.pyc
+stock_list.json
