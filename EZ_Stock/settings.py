@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = 'EZ_Stock.spiders'
 #USER_AGENT = 'EZ_Stock (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = 'false'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
