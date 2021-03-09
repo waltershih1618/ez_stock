@@ -14,8 +14,8 @@ class StockSpider(scrapy.Spider):
     def start_requests(self):
         
         domains = [
-            StockDomain('上市','https://www.twse.com.tw/fund/T86?response=json&date=20210304&selectType=ALLBUT0999'),
-            StockDomain('上櫃','https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?l=zh-tw&o=json&se=EW&t=D&d=110/03/04&s=0,asc')
+            StockDomain('上市','https://www.twse.com.tw/fund/T86?response=json&date=20210309&selectType=ALLBUT0999'),
+            StockDomain('上櫃','https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?l=zh-tw&o=json&se=EW&t=D&d=110/03/09&s=0,asc')
         ]
 
         headers = {
@@ -71,7 +71,7 @@ class StockSpider(scrapy.Spider):
                 #print content
                 for stock in (json_response['data']):
                     if (stock[0] in stock_list):
-                        print('{0:4} {1:4} {2:12} {3:12} {4:14} {5:12} {6:12} {7:14} {8:14} {9:14} {10:16} {11:16}'.format(stock[1], stock[0], stock[2], stock[3], stock[4], stock[8], stock[9], stock[10], stock[12], stock[13], stock[14], stock[18]))
+                        print('{0:4} {1:6} {2:12} {3:12} {4:14} {5:12} {6:12} {7:14} {8:14} {9:14} {10:16} {11:16}'.format(stock[1].rstrip(), stock[0], stock[2], stock[3], stock[4], stock[8], stock[9], stock[10], stock[12], stock[13], stock[14], stock[18]))
                 
     
                 
