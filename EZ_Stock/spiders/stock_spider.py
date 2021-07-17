@@ -1,5 +1,6 @@
 import scrapy
 import json
+import datetime
 
 class StockDomain:
     def __init__(self, name, url):
@@ -12,10 +13,11 @@ class StockSpider(scrapy.Spider):
     name = "stocks"
 
     def start_requests(self):
-        
+        twseURL = "https://www.twse.com.tw/fund/T86?response=json&date={}&selectType=ALLBUT0999".format(datetime.datetime.now().strftime('%Y%m%d'))
+        tpexURL = "https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?l=zh-tw&o=json&se=EW&t=D&d={}&s=0,asc".format("{}/{}/{}".format(datetime.datetime.now().year - 1911,datetime.datetime.now().month,datetime.datetime.now().day))
         domains = [
-            StockDomain('上市','https://www.twse.com.tw/fund/T86?response=json&date=20210309&selectType=ALLBUT0999'),
-            StockDomain('上櫃','https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?l=zh-tw&o=json&se=EW&t=D&d=110/03/09&s=0,asc')
+            StockDomain('上市', twseURL),
+            StockDomain('上櫃', tpexURL)
         ]
 
         headers = {
