@@ -14,7 +14,7 @@ class StockSpider(scrapy.Spider):
 
     def start_requests(self):
         twseURL = "https://www.twse.com.tw/fund/T86?response=json&date={}&selectType=ALLBUT0999".format(datetime.datetime.now().strftime('%Y%m%d'))
-        tpexURL = "https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?l=zh-tw&o=json&se=EW&t=D&d={}&s=0,asc".format("{}/{:02d}/{}".format(datetime.datetime.now().year - 1911,datetime.datetime.now().month,datetime.datetime.now().day))
+        tpexURL = "https://www.tpex.org.tw/web/stock/3insti/daily_trade/3itrade_hedge_result.php?l=zh-tw&o=json&se=EW&t=D&d={}&s=0,asc".format("{}/{:02d}/{:02d}".format(datetime.datetime.now().year - 1911,datetime.datetime.now().month,datetime.datetime.now().day))
         domains = [
             StockDomain('上市', twseURL),
             StockDomain('上櫃', tpexURL)
